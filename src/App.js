@@ -99,8 +99,5 @@ const App = () => {
         setScrollState(true);
         window.scrollTo(0, window.innerHeight - 310);
     }
-    function refreshBackdrop() {
-        percentage++;
-    }
 }
 export default App;
