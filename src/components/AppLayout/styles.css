@@ -1,0 +1,11 @@
+.tankContainer {
+	color: #fff;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	position: absolute;
+	width: 100vw;
+	gap: 20px;
+	padding-top: 100px;
+	bottom: 10vh !important;
+}

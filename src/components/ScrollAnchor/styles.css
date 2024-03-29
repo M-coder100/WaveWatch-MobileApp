@@ -1,0 +1,24 @@
+a.scrollAnchor {
+    position: absolute;
+    z-index: 1;
+    top: 70vh;
+    left: 50%;
+    transform: translateX(-50%);
+
+    svg path {
+        animation: anchor 2.5s ease-in-out infinite;
+        animation-delay: calc(var(--i) * 0.3s);
+    }
+}
+
+@keyframes anchor {
+    from {
+        stroke: #006bff;
+    }
+    50% {
+        stroke: white;
+    }
+    to {
+        stroke: #006bff;
+    }
+}

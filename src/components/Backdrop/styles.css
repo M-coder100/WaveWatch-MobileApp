@@ -1,0 +1,75 @@
+.waterLevelBackdrop {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	z-index: -999;
+    bottom: 0;
+}
+.waterLevelBackdrop .wave {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	padding-bottom: var(--waterLevelPercentage);
+	background: url(../../imgs/wave.png) repeat-x;
+	background-size: 1000px 100px;
+	animation: transform 4s ease-in-out infinite;
+	animation-delay: calc(var(--i) * 0.25s);
+	transition: all 2s ease;
+}
+.fillUpBG {
+	background: linear-gradient(to bottom, #fff, #53baff);
+	position: absolute;
+	width: 100vw;
+	top: 100vh;
+	height: 100%;
+	transition: filter 2s ease;
+}
+
+.wave#wave1 {
+	z-index: 5;
+	opacity: 1;
+	background-position-x: 400px;
+}
+.wave#wave2 {
+	z-index: 4;
+	opacity: 0.5;
+	background-position-x: 300px;
+}
+.wave#wave3 {
+	z-index: 3;
+	opacity: 0.2;
+	background-position-x: 200px;
+}
+.wave#wave4 {
+	z-index: 2;
+	opacity: 0.7;
+	background-position-x: 100px;
+}
+@keyframes animate {
+	0%, 100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(10px);
+	}
+}
+
+.waterLevelBackdrop .wave::after {
+	content: "";
+	display: flex;
+	position: absolute;
+	bottom: 0;
+	height: calc(var(--waterLevelPercentage) - 100px);
+	width: 100vw;
+	background: white;
+	transition: height 2s ease;
+}
+
+
+.waterLevelBackdrop.scrolled .wave {
+	
+} 
+.waterLevelBackdrop.scrolled * {
+	filter: invert(1) hue-rotate(180deg);
+}

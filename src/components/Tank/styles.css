@@ -1,0 +1,203 @@
+.waterPercentage .minimal {
+	display: none;
+	animation: show_hide .5s ease forwards reverse;
+}
+
+.tankDetails {
+	background: #1d1e22cd;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	border-radius: 15px;
+	-webkit-backdrop-filter: blur(50px);
+	backdrop-filter: blur(50px);
+	position: relative;
+	z-index: 100;
+	animation: scaleNormal 1s ease forwards;
+}
+.tankDetails .infoUpper {
+	display: flex;
+	font-weight: 700;
+	align-items: center;
+	width: max-content;
+	justify-content: space-between;
+	padding-top: 15px;
+}
+.tankDetails .infoUpper > div {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.tankDetails .infoUpper .tankTagName {
+	background: #1d1e22cd;
+	padding: 5px 10px;
+	border-radius: 10px;
+	font-size: 0.8em;
+	font-weight: 500;
+	margin-right: 20px;
+	display: inline-block;
+}
+.tankDetails .infoUpper .tankTagName.smartFlow {
+	background: linear-gradient(90deg,#0b88db, #0055ff);
+}
+.tankDetails .infoUpper .moreOptions {
+	all: unset;
+	font-size: 1.2em;
+	-webkit-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	height: 20px;
+	width: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tankDetails:not(.minimal) .waterPercentage {
+	position: relative;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	filter: none;
+	background: conic-gradient(#0099ff, #0400ff 300deg, #1d1e22 0deg);
+}
+.waterPercentage::after {
+	content: "";
+	width: 0;
+	height: 0;
+	background: #1d1e22a1;
+	-webkit-backdrop-filter: blur(50px);
+	backdrop-filter: blur(50px);
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	animation: afterElm 1s ease forwards;
+}
+.waterPercentage > div:not(.minimal) {
+	position: absolute;
+	top: 46%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	font-size: 1.25em;
+	font-weight: 400;
+	display: flex;
+	transition: all .5s ease;
+}
+.waterPercentage h3 {
+	font-size: 1em;
+	transform: scale(1.5);
+	font-weight: 500;
+	margin-right: 8px;
+}
+.waterPercentage h4 {
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	z-index: 1;
+	transform: translateX(-50%);
+}
+.waterFlowDetails {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	flex-direction: column;
+	animation: show_hide .5s ease forwards reverse;
+}
+.waterFlowDetails .waterLevelInfoValue {
+	font-family: monospace;
+	font-weight: 600;
+	font-size: 1.1em;
+}
+
+
+/* MINIMAL */
+.tankDetails.minimal {
+	bottom: 0;
+	padding-inline: 15px;
+	animation: scaleMinimal .5s ease forwards;
+}
+.tankDetails.minimal .infoUpper {
+	width: 100%;
+}
+.tankDetails.minimal .waterFlowDetails, .tankDetails.minimal .waterPercentage h4, .tankDetails.minimal .waterPercentage::after {
+	display: none;
+}
+.tankDetails.minimal .waterPercentage > div {
+	top: 50%;
+	font-size: 1em;
+	left: 65%;
+	font-weight: 600;
+}
+.tankDetails.minimal .waterPercentage {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	flex-direction: column;
+	z-index: -1;
+	background: transparent !important;
+}
+.tankDetails.minimal .waterPercentage h3 {
+	font-weight: inherit;
+	transform: scale(1);
+	right: 0;
+}
+.tankDetails.minimal .waterPercentage .minimal {
+	width: 32vw;
+	border-radius: 10px;
+	display: flex;
+	background: linear-gradient(90deg, transparent, #1d1e22cd);
+	margin-right: 50px;
+	border: 2px solid #1d1e22cd;
+}
+.tankDetails.minimal .waterPercentage .minimal .progressBar {
+	width: 0;
+	border-right: 2px solid #1d1e22cd;
+	height: 30px;
+	border-radius: 10px;
+	background: linear-gradient(90deg,#0b88db, #0055ff);
+	transition: width .5s ease;
+}
+
+@keyframes scaleMinimal {
+	from {
+		width: 240px;
+		height: 310px;
+		bottom: 100px;
+	}
+	to {
+		height: 55px;
+		width: 90vw;
+		bottom: 0;
+	}
+}
+@keyframes scaleNormal {
+	from {
+		height: 55px;
+		width: 90vw;
+		bottom: 0;
+	}
+	to {
+		width: 240px;
+		height: 310px;
+		bottom: 100px;
+	}
+}
+@keyframes afterElm {
+	to {
+		width: 100px;
+		height: 100px;
+	}
+}
+@keyframes show_hide {
+	to {
+		opacity: 0;
+	}
+}
