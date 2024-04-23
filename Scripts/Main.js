@@ -77,8 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style = "filter: invert(1) hue-rotate(180deg) !important"
     })
 
-    window.addEventListener("scroll", function () {
+    let lastScrollY = 0;
+    setInterval(() => {
         let value = window.scrollY;
+        if (value == lastScrollY) return;
+        lastScrollY = value;
+
         if (value >= 250) {
             document.body.style = "background: #191919;"
             document.querySelector(".waterLevelBackdrop").style = "filter: invert(90%);"
@@ -93,15 +97,13 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(".waterLevelBackdrop").style = "filter: invert(0);"
             document.body.style = "background: #0099ff;"
             tanksElm[0].classList.remove("minimal");
+            
+            wave1.style.backgroundPositionX = 400 + value * 4 + "px";
+            wave2.style.backgroundPositionX = 300 + value * -4 + "px";
+            wave3.style.backgroundPositionX = 200 + value * 2 + "px";
+            wave4.style.backgroundPositionX = 100 + value * -2 + "px";
         }
-        wave1.style.backgroundPositionX = 400 + value * 4 + "px";
-        wave2.style.backgroundPositionX = 300 + value * -4 + "px";
-        wave3.style.backgroundPositionX = 200 + value * 2 + "px";
-        wave4.style.backgroundPositionX = 100 + value * -2 + "px";
-    });
-
-
-
+    }, 100);
 })
 
 
