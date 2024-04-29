@@ -1,0 +1,52 @@
+{
+    "ssid": "SomeNetworkSSID",
+    "password": "SomeNetworkPSK",
+    "ip": "192.168.0.199",
+    "gateway": "192.168.0.1",
+    "subnet": "225.225.0.0",
+    "dns1": "8.8.8.8",
+    "dns2": "8.8.4.4",
+    "isSmartFlowActive": true,
+
+    "tanks": [
+        {
+            "tankName": "Tank 1",
+            "tankTagName": "",
+            "height": "150",
+            "diameter": "100",
+            "maxLiters": "1000",
+            "smartFlow": {
+                "isActive": true,
+                "min": 10,
+                "tol": 50,
+                "max": 90
+            }
+        },
+        {
+            "tankName": "Tank 2",
+            "tankTagName": "",
+            "height": "120",
+            "diameter": "80",
+            "maxLiters": "1000",
+            "smartFlow": {
+                "isActive": false,
+                "min": 0,
+                "tol": 45,
+                "max": 95
+            }
+        },
+        {
+            "tankName": "Tank 3",
+            "tankTagName": "",
+            "height": "150",
+            "diameter": "110",
+            "maxLiters": "2000",
+            "smartFlow": {
+                "isActive": true,
+                "min": 20,
+                "tol": 60,
+                "max": 100
+            }
+        }
+    ]
+}
