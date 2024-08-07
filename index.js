@@ -195,7 +195,7 @@ function init() {
     handleTankCarousel();
     handlePumpBtnPress();
 
-    handleTankUI(1000);
+    // handleTankUI(1000);
 }
 
 
